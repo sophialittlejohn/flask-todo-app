@@ -1,0 +1,5 @@
+When creating db:
+ - Define models
+ - Db init
+ - db migrate
+ - db upgrade
