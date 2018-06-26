@@ -14,6 +14,7 @@ class TodoItem(db.Model):
     def serialize(self):
         return {
             'id': self.id,
+            'list-id': self.todo_list_id,
             'content': self.content,
-            'created': self.created.strftime('It is %d, %b %Y')
+            'created': self.created.strftime('%d, %b %Y')
         }

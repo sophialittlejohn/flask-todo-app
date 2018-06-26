@@ -26,5 +26,16 @@ class ListAllTodoItemsByListView(APIView):
 
     def get(self, **kwargs):
         todo_list_id = kwargs.get('todo_list_id')
-        todo_items = TodoItem.query.filter_by(todo_list_id=todo_list_id)
-        return f'{todo_items.serialize()}'
+        try:
+            todo_item = TodoItem.query.filter_by(todo_list_id=todo_list_id)
+            self.session.commit()
+            return f'{todo_item.serialize()}'
+        except AttributeError:
+            return f"No list with ID {todo_list_id} found!"
+
+
+class ListAllTodoItems(APIView):
+
+    def get(self, **kwargs):
+        todo_items = TodoItem.query.all()
+        return json.dumps([l.serialize() for l in todo_items])

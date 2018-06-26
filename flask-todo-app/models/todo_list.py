@@ -12,5 +12,5 @@ class TodoList(db.Model):
         return {
             'id': self.id,
             'name': self.name,
-            'created': self.created.strftime('It is %d, %b %Y')
+            'created': self.created.strftime('%d, %b %Y')
         }
