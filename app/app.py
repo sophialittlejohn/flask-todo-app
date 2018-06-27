@@ -5,7 +5,7 @@
 import random
 import string
 
-from flask import Flask, request
+from flask import Flask
 from flask_migrate import Migrate
 
 from database import db

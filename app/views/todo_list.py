@@ -66,3 +66,11 @@ class TodoListGetUpdateDeleteView(APIView):
             return json.dumps(todo_list.serialize())
         except AttributeError:
             return f"No list with ID {todo_list_id} found!"
+
+
+class SearchTodoLists(APIView):
+
+    def get(self, **kwargs):
+        q = request.values.get('q')
+        todo_lists = TodoList.query.filter(TodoList.name.like(f'%{q}%'))
+        return json.dumps([l.serialize() for l in todo_lists])
