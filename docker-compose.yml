@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    image: sophialj/flask-todo-app:latest
+    restart: always
+    environment:
+      - FLASK_APP=app.py
+    command: "sh /app/scripts/run.sh"
+    volumes:
+      - /run:/run
+      - database:/database
+
+volumes:
+  database:
