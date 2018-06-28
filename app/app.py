@@ -14,9 +14,7 @@ from urls import todo_items_api, todo_lists_api
 
 app = Flask(__name__)
 
-# create the database file with sqlite
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo_app.sqlite'
-# this is so the command line doesnt complain
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@postgres/postgres'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 migrate = Migrate(app, db)

@@ -3,9 +3,9 @@ channels:
 - conda-forge
 dependencies:
   - python=3.6
-  - uwsgi==2.0.15
+  - psycopg2=2.7.4
   - pip:
+    - gunicorn
     - flask==0.12.2
     - flask-sqlalchemy==2.3.2
     - Flask-Migrate==2.1.1
-    - flake8==3.5.0

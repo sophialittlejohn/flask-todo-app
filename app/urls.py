@@ -1,7 +1,7 @@
 from flask import Blueprint
 
 from views.todo_item import AddNewTodoItemView, ListAllTodoItems, GetTodoItemsView, DeleteTodoItemsView, \
-    UpdateTodoItemView
+    UpdateTodoItemView, ToggleTodoStatusView
 from views.todo_list import ListAllTodoIListsView, TodoListGetUpdateDeleteView, AddNewTodoListView, SearchTodoLists
 
 todo_items_api = Blueprint('todo_items_api', 'todo_items_api')
@@ -13,6 +13,7 @@ todo_items_api.add_url_rule('<int:todo_list_id>/all/', view_func=GetTodoItemsVie
 todo_items_api.add_url_rule('delete/<int:todo_item_id>', view_func=DeleteTodoItemsView.as_view('delete-todo-item'))
 todo_items_api.add_url_rule('update/<int:todo_item_id>', view_func=UpdateTodoItemView.as_view('update-todo-item'))
 todo_items_api.add_url_rule('all/', view_func=ListAllTodoItems.as_view('list-all-todo-items'))
+todo_items_api.add_url_rule('<int:todo_item_id>/done', view_func=ToggleTodoStatusView.as_view('toggle-todo-done'))
 
 
 todo_lists_api.add_url_rule('/all/', view_func=ListAllTodoIListsView.as_view('list-all-todos'))

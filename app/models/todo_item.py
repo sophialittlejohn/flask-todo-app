@@ -16,5 +16,6 @@ class TodoItem(db.Model):
             'id': self.id,
             'list-id': self.todo_list_id,
             'content': self.content,
-            'created': self.created.strftime('%d, %b %Y')
+            'created': self.created.strftime('%d, %b %Y'),
+            'done': self.done
         }

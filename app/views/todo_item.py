@@ -67,3 +67,18 @@ class ListAllTodoItems(APIView):
     def get(self, **kwargs):
         todo_items = TodoItem.query.all()
         return json.dumps([l.serialize() for l in todo_items])
+
+
+class ToggleTodoStatusView(APIView):
+
+    def post(self, **kwargs):
+        todo_item_id = kwargs.get('todo_item_id')
+        todo_item = TodoItem.query.filter_by(id=todo_item_id)
+        todo_item = json.loads(todo_item)
+        if todo_item:
+            done = todo_item.done
+            print(done)
+            self.session.commit()
+            return "done"
+        else:
+            return "nope"
