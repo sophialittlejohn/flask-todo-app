@@ -2,7 +2,7 @@
 
 This is a simple API written in with Flask running in a Docker container.
 
-##Endpoints 
+## Endpoints 
 
 - ``/todo-items/<int:todo_list_id>/new/``
 - ``/todo-items/<int:todo_list_id>/all/``
@@ -18,7 +18,7 @@ This is a simple API written in with Flask running in a Docker container.
 - ``/todo-lists/search/``
 
 
-##Usage
+## Usage
 
 Clone the repository to you machine:
 
