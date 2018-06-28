@@ -24,9 +24,13 @@ Clone the repository to you machine:
 
 ``git clone git@github.com:sophialittlejohn/flask-todo-app.git``
 
+Navigate to the right directory:
+
+``cd flask-todo-app``
+
 Build the Docker container:
 
-``docker build -t sophialj/flask-todo-app:latest``
+``docker build -t sophialj/flask-todo-app:latest .``
 
 Start the Docker container:
 
